@@ -1,6 +1,9 @@
 // importo express
 const express = require('express');
 
+// importo posts
+const postsImported = require('../data/posts');
+
 // importo la classe router
 const router = express.Router();
 
@@ -9,12 +12,12 @@ const router = express.Router();
 
 // rotta che mostra tutti posts (index)
 router.get('/', (req, res) => {
-    res.send('Lista di tutti i posts');
+    res.json(postsImported);
 });
 
 // rotta che mostra un posts (show)
 router.get('/:id', (req, res) => {
-    res.send('Dettaglio del posts' + req.params.id);
+    res.send('Dettaglio del posts' + ' ' + req.params.id);
 });
 
 // rotta inserisce un nuovo post (store)
@@ -24,12 +27,12 @@ router.post('/', (req, res) => {
 
 // rotta che modifica totalmente un post (update)
 router.put('/:id', (req, res) => {
-    res.send('Modifica totale del post' + req.params.id);
+    res.send('Modifica totale del post' + ' ' + req.params.id);
 });
 
 // rotta che modifica parzialmente un post (modify)
 router.patch('/:id', (req, res) => {
-    res.send('Modifica parziale di un post' + req.params.id);
+    res.send('Modifica parziale di un post' + ' ' + req.params.id);
 });
 
 // rotta che elimina un post (destroy)
