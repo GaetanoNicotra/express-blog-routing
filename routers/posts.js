@@ -36,3 +36,6 @@ router.patch('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     res.send('Cancellazione di un posts');
 });
+
+// esporto le rotte
+module.exports = router;
