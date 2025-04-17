@@ -9,7 +9,7 @@ const router = express.Router();
 
 // rotta che mostra tutti posts (index)
 router.get('/', (req, res) => {
-    res.send('Lista dei posts');
+    res.send('Lista di tutti i posts');
 });
 
 // rotta che mostra un posts (show)
@@ -24,17 +24,17 @@ router.post('/', (req, res) => {
 
 // rotta che modifica totalmente un post (update)
 router.put('/:id', (req, res) => {
-    res.send('Modifica totale del post');
+    res.send('Modifica totale del post' + req.params.id);
 });
 
 // rotta che modifica parzialmente un post (modify)
 router.patch('/:id', (req, res) => {
-    res.send('Modifica parziale di un post');
+    res.send('Modifica parziale di un post' + req.params.id);
 });
 
 // rotta che elimina un post (destroy)
 router.delete('/:id', (req, res) => {
-    res.send('Cancellazione di un posts');
+    res.send(`Cancellazione di un post' ${req.params.id}`);
 });
 
 // esporto le rotte
