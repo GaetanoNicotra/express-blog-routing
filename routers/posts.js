@@ -1,7 +1,7 @@
 // importo express
 const express = require('express');
 
-// importo posts
+// importo L'ARRAY posts
 const postsImported = require('../data/posts');
 
 // importo la classe router
@@ -17,7 +17,13 @@ router.get('/', (req, res) => {
 
 // rotta che mostra un posts (show)
 router.get('/:id', (req, res) => {
-    res.send('Dettaglio del posts' + ' ' + req.params.id);
+    const idSearched = req.params.id;
+    const post = postsImported.find((p) => p.id == idSearched);
+    if (post) {
+        res.json(post);
+    } else {
+        res.json({ message: "Post non trovato" });
+    }
 });
 
 // rotta inserisce un nuovo post (store)
